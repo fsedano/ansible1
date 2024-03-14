@@ -1,14 +1,17 @@
 ---
 - hosts: all
+  become: false
+  gather_facts: false
   tasks:
     - name: Create a full clone
       delegate_to: 127.0.0.1
       community.general.proxmox:
         vmid: 200
+        unprivileged: false
         node: pve1
         api_user: root@pam
-        api_password: password
+        api_password: rem0te
         api_host: 192.168.30.121
-        clone: 102
+        clone: 109
         hostname: test
         storage: local
