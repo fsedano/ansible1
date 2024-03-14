@@ -1,0 +1,13 @@
+---
+- hosts: all
+  tasks:
+    - name: Create a full clone
+      community.general.proxmox:
+        vmid: 200
+        node: pve1
+        api_user: root@pam
+        api_password: password
+        api_host: 192.168.30.121
+        clone: 102
+        hostname: test
+        storage: local
